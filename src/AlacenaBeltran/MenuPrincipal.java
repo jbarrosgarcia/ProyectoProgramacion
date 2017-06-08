@@ -163,6 +163,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
+                    jTextField1.setText(total+" €");
                     cant = cant - 1;
                     metodos.consultar("Update producto set cantidad = " + cant + " where nombre='bocadillo' ");
                 }
@@ -186,6 +187,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
+                    jTextField1.setText(total+" €");
                     cant = cant - 1;
                     metodos.consultar("Update producto set cantidad = " + cant + " where nombre='cafe' ");
                 }
@@ -209,6 +211,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
+                   jTextField1.setText(total+" €");
                     cant = cant - 1;
                     metodos.consultar("Update producto set cantidad = " + cant + " where nombre='cerveza' ");
                 }
@@ -232,6 +235,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
+                    jTextField1.setText(total+" €");
                     cant = cant - 1;
                     metodos.consultar("Update producto set cantidad = " + cant + " where nombre='cola' ");
                 }
@@ -255,6 +259,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
+                    jTextField1.setText(total+" €");
                     cant = cant - 1;
                     metodos.consultar("Update producto set cantidad = " + cant + " where nombre='donut' ");
                 }
@@ -278,6 +283,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
+                    jTextField1.setText(total+" €");
                     cant = cant - 1;
                     metodos.consultar("Update producto set cantidad = " + cant + " where nombre='zumo' ");
                 }
