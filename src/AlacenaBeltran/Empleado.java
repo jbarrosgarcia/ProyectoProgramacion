@@ -12,7 +12,8 @@ public class Empleado {
     private String nombre;
     private String password;
 
-    public Empleado(String nombre, String password) {
+    public Empleado(int id, String nombre, String password) {
+        this.id = id;
         this.nombre = nombre;
         this.password = password;
     }
