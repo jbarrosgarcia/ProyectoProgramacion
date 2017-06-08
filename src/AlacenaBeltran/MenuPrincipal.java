@@ -5,12 +5,19 @@
  */
 package AlacenaBeltran;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Jose Barros
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-
+    int total;
+    int precio=0;
+    int cant=0;
     /**
      * Creates new form MenuPincipal
      */
@@ -40,6 +47,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bocadillo.jpg"))); // NOI18N
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cafe.jpg"))); // NOI18N
 
@@ -109,6 +121,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        MetodosDB metodos=new MetodosDB();
+        
+        metodos.connect();
+       ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'bocadillo'");
+        try {
+            while(resultado.next()){
+               precio=resultado.getInt("precio");
+               cant=resultado.getInt("cantidad");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        metodos.close();
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
