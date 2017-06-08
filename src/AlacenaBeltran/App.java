@@ -11,9 +11,9 @@ package AlacenaBeltran;
  */
 public class App {
     public static void main(String[] args){
-       // Login log = new Login();
-        //log.setVisible(true);
-        Display log=new Display();
+        Login log = new Login();
         log.setVisible(true);
+//        Display dis=new Display();
+//        dis.setVisible(true);
     }
 }
