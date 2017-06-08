@@ -31,6 +31,7 @@ public class Conexion {
 }
  public void close(){
         try {
+            consulta.close();
             connect.close();
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
