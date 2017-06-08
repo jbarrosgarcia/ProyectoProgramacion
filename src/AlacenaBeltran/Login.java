@@ -5,6 +5,8 @@
  */
 package AlacenaBeltran;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jose Barros
@@ -46,6 +48,11 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Contraseña :");
 
         jButton1.setText("Log in");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,6 +95,21 @@ public class Login extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        String pass="";
+        MetodosDB met=new MetodosDB();
+        met.connect();
+        pass=met.logger("Select password from usuario where nombre="+jTextField1.getText());
+        if(pass.equals(jTextField2.getText())){
+            MenuPrincipal menu =new MenuPrincipal();
+            menu.setVisible(true);
+        }else{
+            JOptionPane.showConfirmDialog(rootPane, "La contraseña no es correcta");
+        }
+        met.close();
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments

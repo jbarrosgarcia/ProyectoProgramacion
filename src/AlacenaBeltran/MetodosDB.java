@@ -50,7 +50,6 @@ public class MetodosDB extends Conexion {
      * @return
      */
     public ResultSet consultar(String sql) {
-        connect();
         ResultSet resultado = null;
         try {
             resultado = consulta.executeQuery(sql);

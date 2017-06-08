@@ -7,6 +7,7 @@ package AlacenaBeltran;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Jose Barros
@@ -33,5 +34,19 @@ public class Conexion {
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
+ }
+ public String logger(String sql){
+      ResultSet resultado = null;
+      String res="";
+        try {
+            resultado = consulta.executeQuery(sql);
+            res=resultado.toString();
+        } catch (SQLException ex) {
+            System.out.println("Mensaje:" + ex.getMessage());
+            System.out.println("Estado:" + ex.getSQLState());
+            System.out.println("Codigo del error:" + ex.getErrorCode());
+            JOptionPane.showMessageDialog(null, "Error consulta    " + ex.getMessage());
+        }
+        return res;
  }
 }
