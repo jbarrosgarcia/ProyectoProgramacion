@@ -175,7 +175,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-         MetodosDB metodos = new MetodosDB();
+        MetodosDB metodos = new MetodosDB();
         metodos.connect();
         ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'cafe'");
         try {
@@ -198,7 +198,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-         MetodosDB metodos = new MetodosDB();
+        MetodosDB metodos = new MetodosDB();
         metodos.connect();
         ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'cerveza'");
         try {
@@ -221,7 +221,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-         MetodosDB metodos = new MetodosDB();
+        MetodosDB metodos = new MetodosDB();
         metodos.connect();
         ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'cola'");
         try {
@@ -244,7 +244,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
-         MetodosDB metodos = new MetodosDB();
+        MetodosDB metodos = new MetodosDB();
         metodos.connect();
         ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'donut'");
         try {
@@ -267,7 +267,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         // TODO add your handling code here:
-         MetodosDB metodos = new MetodosDB();
+        MetodosDB metodos = new MetodosDB();
         metodos.connect();
         ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'zumo'");
         try {
