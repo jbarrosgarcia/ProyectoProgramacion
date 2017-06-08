@@ -13,9 +13,14 @@ import java.util.logging.Logger;
  */
 public class Conexion {
     Connection connect;
+
+
+   
+    
+    
  public void connect(){
  try {
-     connect = DriverManager.getConnection("jdbc:sqlite:baseproductos");
+     connect = DriverManager.getConnection("jdbc:sqlite:baseproductos.db");
      if (connect!=null) {
          System.out.println("Conectado");
      }
