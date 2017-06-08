@@ -13,9 +13,12 @@ import java.util.logging.Logger;
  */
 public class Conexion {
     Connection connect;
+    Statement consulta;
+    
  public void connect(){
  try {
-     connect = DriverManager.getConnection("jdbc:sqlite:baseproductos");
+     connect = DriverManager.getConnection("jdbc:sqlite:baseproductos.db");
+     consulta = connect.createStatement();
      if (connect!=null) {
          System.out.println("Conectado");
      }
@@ -25,6 +28,7 @@ public class Conexion {
 }
  public void close(){
         try {
+            consulta.close();
             connect.close();
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);

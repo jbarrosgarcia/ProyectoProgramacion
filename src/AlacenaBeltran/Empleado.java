@@ -1,26 +1,28 @@
-
 package AlacenaBeltran;
 
 /**
  * Clase empleado, representa cada trabajador de la tienda o local que se quiere
  * gestionar
+ *
  * @author abeltran
  */
-
 public class Empleado {
+
+    private int id;
     private String nombre;
-    private String apellidos;
-    private String dni;
-    private Usuario usuario;
-    private int vendido;
-   
-    
-    public Empleado(String nombre,String apellidos,String dni,Usuario usuario,int vendido){
-        this.nombre=nombre;
-        this.apellidos=apellidos;
-        this.dni=dni;
-        this.usuario=usuario;
-        this.vendido=vendido;
+    private String password;
+
+    public Empleado(String nombre, String password) {
+        this.nombre = nombre;
+        this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -31,42 +33,17 @@ public class Empleado {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getPassword() {
+        return password;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public int getVendido() {
-        return vendido;
-    }
-
-    public void setVendido(int vendido) {
-        this.vendido = vendido;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
-        return nombre + "," + apellidos + "," + dni + "," + usuario + "," + vendido;
+        return "Empleado{" + "id=" + id + ", nombre=" + nombre + ", password=" + password + '}';
     }
-    
-    
+
 }

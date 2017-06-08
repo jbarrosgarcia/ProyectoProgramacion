@@ -6,25 +6,25 @@ package AlacenaBeltran;
  * @author abeltran
  */
 public class Producto {
-    private static int codigo=0;
-    private String codigoP;
+    
+    private int id;
     private String nombre;
     private float precio;
     private int unidades;
     
-    public Producto(String nombre,float precio,int unidades){
-        this.codigoP=String.valueOf(codigo++);
+    public Producto(int id, String nombre,float precio,int unidades){
+        this.id=id;
         this.nombre=nombre;
         this.precio=precio;
         this.unidades=unidades;
     }
 
-    public String getCodigoP() {
-        return codigoP;
+    public int getId() {
+        return id;
     }
 
-    public void setCodigoP(String codigoP) {
-        this.codigoP = codigoP;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -61,7 +61,7 @@ public class Producto {
      * @return Devuelve la representación del objeto
      */
     public String show(){
-        return "Codigo: "+this.codigoP+"\nNombre: "+this.nombre+"\nPrecio: "+this.precio+"\nDescuento:\nUnidades: "+this.unidades+"u";
+        return "Codigo: "+this.id+"\nNombre: "+this.nombre+"\nPrecio: "+this.precio+"\nDescuento:\nUnidades: "+this.unidades+"u";
     }
     
     
