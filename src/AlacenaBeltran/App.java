@@ -11,8 +11,11 @@ package AlacenaBeltran;
  */
 public class App {
     public static void main(String[] args){
-        Login log = new Login();
+       // Login log = new Login();
+        //log.setVisible(true);
+        MenuPrincipal log=new MenuPrincipal();
         log.setVisible(true);
-        
+        Conexion con =new Conexion();
+        con.connect();
     }
 }
