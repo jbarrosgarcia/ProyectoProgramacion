@@ -9,15 +9,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jose Barros
  */
 public class MenuPrincipal extends javax.swing.JFrame {
+
     int total;
-    int precio=0;
-    int cant=0;
+    int precio = 0;
+    int cant = 0;
+
     /**
      * Creates new form MenuPincipal
      */
@@ -54,14 +57,39 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cafe.jpg"))); // NOI18N
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerveza.jpg"))); // NOI18N
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cocacola.jpg"))); // NOI18N
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/donut.jpg"))); // NOI18N
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zumo.jpg"))); // NOI18N
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Carrito.jpg"))); // NOI18N
 
@@ -124,20 +152,141 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        MetodosDB metodos=new MetodosDB();
-        
+        MetodosDB metodos = new MetodosDB();
         metodos.connect();
-       ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'bocadillo'");
+        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'bocadillo'");
         try {
-            while(resultado.next()){
-               precio=resultado.getInt("precio");
-               cant=resultado.getInt("cantidad");
+            while (resultado.next()) {
+                precio = resultado.getInt("precio");
+                cant = resultado.getInt("cantidad");
+                if (cant == 0) {
+                    JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
+                } else {
+                    total = total + precio;
+                    cant = cant - 1;
+                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='bocadillo' ");
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         metodos.close();
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+         MetodosDB metodos = new MetodosDB();
+        metodos.connect();
+        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'cafe'");
+        try {
+            while (resultado.next()) {
+                precio = resultado.getInt("precio");
+                cant = resultado.getInt("cantidad");
+                if (cant == 0) {
+                    JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
+                } else {
+                    total = total + precio;
+                    cant = cant - 1;
+                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='cafe' ");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        metodos.close();
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+         MetodosDB metodos = new MetodosDB();
+        metodos.connect();
+        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'cerveza'");
+        try {
+            while (resultado.next()) {
+                precio = resultado.getInt("precio");
+                cant = resultado.getInt("cantidad");
+                if (cant == 0) {
+                    JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
+                } else {
+                    total = total + precio;
+                    cant = cant - 1;
+                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='cerveza' ");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        metodos.close();
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+         MetodosDB metodos = new MetodosDB();
+        metodos.connect();
+        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'cola'");
+        try {
+            while (resultado.next()) {
+                precio = resultado.getInt("precio");
+                cant = resultado.getInt("cantidad");
+                if (cant == 0) {
+                    JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
+                } else {
+                    total = total + precio;
+                    cant = cant - 1;
+                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='cola' ");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        metodos.close();
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+         MetodosDB metodos = new MetodosDB();
+        metodos.connect();
+        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'donut'");
+        try {
+            while (resultado.next()) {
+                precio = resultado.getInt("precio");
+                cant = resultado.getInt("cantidad");
+                if (cant == 0) {
+                    JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
+                } else {
+                    total = total + precio;
+                    cant = cant - 1;
+                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='donut' ");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        metodos.close();
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+         MetodosDB metodos = new MetodosDB();
+        metodos.connect();
+        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'zumo'");
+        try {
+            while (resultado.next()) {
+                precio = resultado.getInt("precio");
+                cant = resultado.getInt("cantidad");
+                if (cant == 0) {
+                    JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
+                } else {
+                    total = total + precio;
+                    cant = cant - 1;
+                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='zumo' ");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        metodos.close();
+    }//GEN-LAST:event_jButton6MouseClicked
 
     /**
      * @param args the command line arguments
