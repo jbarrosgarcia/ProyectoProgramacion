@@ -98,15 +98,20 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        String pass="";
-        MetodosDB met=new MetodosDB();
+        String pass = "";
+        MetodosDB met = new MetodosDB();
         met.connect();
-        pass=met.logger("Select password from usuario where nombre="+jTextField1.getText());
-        if(pass.equals(jTextField2.getText())){
-            MenuPrincipal menu =new MenuPrincipal();
-            menu.setVisible(true);
-        }else{
-            JOptionPane.showConfirmDialog(rootPane, "La contraseña no es correcta");
+        pass = met.logger("Select password from usuario where nombre=" + jTextField1.getText());
+        if ("Admin".equals(jTextField1.getText())&&pass.equals(jTextField2.getText())) {
+            Display disp=new Display();
+            disp.setVisible(true);
+        } else {
+            if (pass.equals(jTextField2.getText())) {
+                MenuPrincipal menu = new MenuPrincipal();
+                menu.setVisible(true);
+            } else {
+                JOptionPane.showConfirmDialog(rootPane, "La contraseña no es correcta");
+            }
         }
         met.close();
     }//GEN-LAST:event_jButton1MouseClicked
