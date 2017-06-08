@@ -96,6 +96,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jTextField1.setEditable(false);
 
         jButton7.setText("Cobrar");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -293,6 +298,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
         metodos.close();
     }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showConfirmDialog(rootPane,"Gracias por visitar nuestro bar");
+    }//GEN-LAST:event_jButton7MouseClicked
 
     /**
      * @param args the command line arguments
