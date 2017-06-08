@@ -13,9 +13,7 @@ public class App {
     public static void main(String[] args){
        // Login log = new Login();
         //log.setVisible(true);
-        MenuPrincipal log=new MenuPrincipal();
+        Display log=new Display();
         log.setVisible(true);
-        Conexion con =new Conexion();
-        con.connect();
     }
 }

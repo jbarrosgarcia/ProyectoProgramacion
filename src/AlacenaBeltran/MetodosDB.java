@@ -70,8 +70,7 @@ public class MetodosDB extends Conexion {
      */
     public void guardarProducto(Producto producto) {
         insertar("insert into productos values(" + producto.getId()
-                + ",'" + producto.getId()
-                + "','" + producto.getNombre()
+                + ",'" + producto.getNombre()
                 + "','" + producto.getPrecio()
                 + "','" + producto.getUnidades() + "')");
     }
@@ -83,8 +82,7 @@ public class MetodosDB extends Conexion {
      */
     public void guardarUsuario(Empleado usuario) {
         insertar("insert into usuarios values(" + usuario.getId()
-                + ",'" + usuario.getId()
-                + "','" + usuario.getNombre()
+                + ",'" + usuario.getNombre()
                 + "','" + usuario.getPassword()+ "')");
     }
 
@@ -167,7 +165,7 @@ public class MetodosDB extends Conexion {
     }
     
     public void eliminar(String idsql) throws SQLException {
-        String query = "DELETE FROM REGISTRO WHERE id = " + idsql;
+        String query = "DELETE FROM productos WHERE id = " + idsql;
         PreparedStatement rs = connect.prepareStatement(query);
         rs.execute();
     }
