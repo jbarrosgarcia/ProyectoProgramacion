@@ -70,7 +70,7 @@ public class MetodosDB extends Conexion {
      */
     public void guardarProducto(Producto producto) {
         insertar("insert into productos values(" + producto.getId()
-                + ",'" + producto.getNombre()
+                + "','" + producto.getNombre()
                 + "','" + producto.getPrecio()
                 + "','" + producto.getUnidades() + "')");
     }
@@ -82,7 +82,7 @@ public class MetodosDB extends Conexion {
      */
     public void guardarUsuario(Empleado usuario) {
         insertar("insert into usuarios values(" + usuario.getId()
-                + ",'" + usuario.getNombre()
+                + "','" + usuario.getNombre()
                 + "','" + usuario.getPassword()+ "')");
     }
 
