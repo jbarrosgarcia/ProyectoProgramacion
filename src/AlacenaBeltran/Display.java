@@ -68,6 +68,7 @@ public class Display extends javax.swing.JFrame {
         jTUsuarios = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -242,9 +243,9 @@ public class Display extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jTFPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addGap(84, 84, 84)
                 .addComponent(jBGuardar1)
-                .addGap(42, 42, 42))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Formulario", jPanel3);
@@ -307,6 +308,13 @@ public class Display extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Usuarios", jTabbedPane2);
 
+        jButton5.setText("salir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -315,11 +323,15 @@ public class Display extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jTabbedPane1)
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton5))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -391,6 +403,14 @@ public class Display extends javax.swing.JFrame {
         operaciones.totalUsuarios((DefaultTableModel) jTUsuarios.getModel());
     }//GEN-LAST:event_jButton4MouseClicked
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+            Login log = new Login();
+            log.setVisible(true);
+            this.setVisible(false);
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
         /** 
      * Método que limpia las cajas de texto después de cada acción.
      */
@@ -446,6 +466,7 @@ public class Display extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
