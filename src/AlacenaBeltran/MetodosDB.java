@@ -54,10 +54,10 @@ public class MetodosDB extends Conexion {
         try {
             resultado = consulta.executeQuery(sql);
         } catch (SQLException ex) {
-            System.out.println("Mensaje:" + ex.getMessage());
-            System.out.println("Estado:" + ex.getSQLState());
-            System.out.println("Codigo del error:" + ex.getErrorCode());
-            JOptionPane.showMessageDialog(null, "Error consulta    " + ex.getMessage());
+//            System.out.println("Mensaje:" + ex.getMessage());
+//            System.out.println("Estado:" + ex.getSQLState());
+//            System.out.println("Codigo del error:" + ex.getErrorCode());
+            //JOptionPane.showMessageDialog(null, "Error consulta    " + ex.getMessage());
         }
         return resultado;
     }
@@ -96,6 +96,7 @@ public class MetodosDB extends Conexion {
         tableModel.setColumnCount(0);
         String sql = "select * from productos";
         try {
+            this.connect();
             resultado = consultar(sql);
             if (resultado != null) {
                 int numeroColumna = resultado.getMetaData().getColumnCount();
@@ -135,6 +136,7 @@ public class MetodosDB extends Conexion {
         tableModel.setColumnCount(0);
         String sql = "select * from usuarios";
         try {
+            this.connect();
             resultado = consultar(sql);
             if (resultado != null) {
                 int numeroColumna = resultado.getMetaData().getColumnCount();

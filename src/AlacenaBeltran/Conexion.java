@@ -34,13 +34,15 @@ public class Conexion {
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+  
  }
  public String logger(String sql){
       ResultSet resultado = null;
       String res="";
         try {
             resultado = consulta.executeQuery(sql);
-            res=resultado.toString();
+            res=resultado.getString("password");
         } catch (SQLException ex) {
             System.out.println("Mensaje:" + ex.getMessage());
             System.out.println("Estado:" + ex.getSQLState());

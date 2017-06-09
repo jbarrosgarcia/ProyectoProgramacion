@@ -159,18 +159,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         MetodosDB metodos = new MetodosDB();
         metodos.connect();
-        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'bocadillo'");
+        ResultSet resultado = metodos.consultar("Select precio,cantidad from productos where nombre = 'bocadillo'");
         try {
             while (resultado.next()) {
-                precio = resultado.getInt("precio");
-                cant = resultado.getInt("cantidad");
+                precio = resultado.getInt(1);
+                cant = resultado.getInt(2);
                 if (cant == 0) {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
                     jTextField1.setText(total+" €");
                     cant = cant - 1;
-                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='bocadillo' ");
+                    metodos.consultar("Update productos set cantidad = " + cant + " where nombre='bocadillo' ");
                 }
             }
         } catch (SQLException ex) {
@@ -183,18 +183,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         MetodosDB metodos = new MetodosDB();
         metodos.connect();
-        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'cafe'");
+        ResultSet resultado = metodos.consultar("Select precio,cantidad from productos where nombre = 'cafe'");
         try {
             while (resultado.next()) {
-                precio = resultado.getInt("precio");
-                cant = resultado.getInt("cantidad");
+                precio = resultado.getInt(1);
+                cant = resultado.getInt(2);
                 if (cant == 0) {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
                     jTextField1.setText(total+" €");
                     cant = cant - 1;
-                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='cafe' ");
+                    metodos.consultar("Update productos set cantidad = " + cant + " where nombre='cafe' ");
                 }
             }
         } catch (SQLException ex) {
@@ -207,18 +207,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         MetodosDB metodos = new MetodosDB();
         metodos.connect();
-        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'cerveza'");
+        ResultSet resultado = metodos.consultar("Select precio,cantidad from productos where nombre = 'cerveza'");
         try {
             while (resultado.next()) {
-                precio = resultado.getInt("precio");
-                cant = resultado.getInt("cantidad");
+                precio = resultado.getInt(1);
+                cant = resultado.getInt(2);
                 if (cant == 0) {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
                    jTextField1.setText(total+" €");
                     cant = cant - 1;
-                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='cerveza' ");
+                    metodos.consultar("Update productos set cantidad = " + cant + " where nombre='cerveza' ");
                 }
             }
         } catch (SQLException ex) {
@@ -231,18 +231,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         MetodosDB metodos = new MetodosDB();
         metodos.connect();
-        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'cola'");
+        ResultSet resultado = metodos.consultar("Select precio,cantidad from productos where nombre = 'cola'");
         try {
             while (resultado.next()) {
-                precio = resultado.getInt("precio");
-                cant = resultado.getInt("cantidad");
+                precio = resultado.getInt(1);
+                cant = resultado.getInt(2);
                 if (cant == 0) {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
                     jTextField1.setText(total+" €");
                     cant = cant - 1;
-                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='cola' ");
+                    metodos.consultar("Update productos set cantidad = " + cant + " where nombre='cola' ");
                 }
             }
         } catch (SQLException ex) {
@@ -255,18 +255,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         MetodosDB metodos = new MetodosDB();
         metodos.connect();
-        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'donut'");
+        ResultSet resultado = metodos.consultar("Select precio,cantidad from productos where nombre = 'donut'");
         try {
             while (resultado.next()) {
-                precio = resultado.getInt("precio");
-                cant = resultado.getInt("cantidad");
+                precio = resultado.getInt(1);
+                cant = resultado.getInt(2);
                 if (cant == 0) {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
                     jTextField1.setText(total+" €");
                     cant = cant - 1;
-                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='donut' ");
+                    metodos.consultar("Update productos set cantidad = " + cant + " where nombre='donut' ");
                 }
             }
         } catch (SQLException ex) {
@@ -279,18 +279,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         MetodosDB metodos = new MetodosDB();
         metodos.connect();
-        ResultSet resultado = metodos.consultar("Select precio from producto where nombre = 'zumo'");
+        ResultSet resultado = metodos.consultar("Select precio,cantidad from productos where nombre = 'zumo'");
         try {
             while (resultado.next()) {
-                precio = resultado.getInt("precio");
-                cant = resultado.getInt("cantidad");
+               precio = resultado.getInt(1);
+                cant = resultado.getInt(2);
                 if (cant == 0) {
                     JOptionPane.showMessageDialog(rootPane, "No hay productos de este tipo");
                 } else {
                     total = total + precio;
                     jTextField1.setText(total+" €");
                     cant = cant - 1;
-                    metodos.consultar("Update producto set cantidad = " + cant + " where nombre='zumo' ");
+                    metodos.consultar("Update productos set cantidad = " + cant + " where nombre='zumo' ");
                 }
             }
         } catch (SQLException ex) {
@@ -301,7 +301,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        JOptionPane.showConfirmDialog(rootPane,"Gracias por visitar nuestro bar");
+        JOptionPane.showMessageDialog(rootPane,"Gracias por visitar nuestro bar");
+        total=0;
+        jTextField1.setText(total+" €");
     }//GEN-LAST:event_jButton7MouseClicked
 
     /**

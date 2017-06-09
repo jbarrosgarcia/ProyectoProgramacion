@@ -5,8 +5,12 @@
  */
 package AlacenaBeltran;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -47,10 +51,23 @@ public class Display extends javax.swing.JFrame {
         jBGuardar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTPersonas = new javax.swing.JTable();
+        jTProductos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTFId1 = new javax.swing.JTextField();
+        jTFNombre1 = new javax.swing.JTextField();
+        jTFPassword = new javax.swing.JTextField();
+        jBGuardar1 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTUsuarios = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
-        jBBuscar = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,7 +107,7 @@ public class Display extends javax.swing.JFrame {
                             .addComponent(jTFPrecio)
                             .addComponent(jTFUnidades)
                             .addComponent(jTFId)
-                            .addComponent(jTFNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))))
+                            .addComponent(jTFNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -119,7 +136,7 @@ public class Display extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Formulario", jPanel1);
 
-        jTPersonas.setModel(new javax.swing.table.DefaultTableModel(
+        jTProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -130,7 +147,7 @@ public class Display extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTPersonas);
+        jScrollPane1.setViewportView(jTProductos);
 
         jButton1.setText("Llenar tabla");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -139,17 +156,10 @@ public class Display extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Eliminar todo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jBBuscar.setText("Buscar");
-        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBBuscarActionPerformed(evt);
+        jButton3.setText("Eliminar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
             }
         });
 
@@ -160,12 +170,11 @@ public class Display extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(146, 146, 146)
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -177,12 +186,126 @@ public class Display extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jBBuscar))
+                    .addComponent(jButton3))
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Lista de productos", jPanel2);
+
+        jLabel5.setText("Id:");
+
+        jLabel6.setText("Nombre:");
+
+        jLabel7.setText("Password:");
+
+        jBGuardar1.setText("Guardar");
+        jBGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardar1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jBGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFPassword)
+                            .addComponent(jTFId1)
+                            .addComponent(jTFNombre1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTFId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addComponent(jTFNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTFPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addComponent(jBGuardar1)
+                .addGap(42, 42, 42))
+        );
+
+        jTabbedPane2.addTab("Formulario", jPanel3);
+
+        jTUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(jTUsuarios);
+
+        jButton2.setText("Llenar tabla");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Eliminar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton4))
+                .addContainerGap())
+        );
+
+        jTabbedPane2.addTab("Lista de usuarios", jPanel4);
+
+        jTabbedPane1.addTab("Usuarios", jTabbedPane2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,25 +327,31 @@ public class Display extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        /** 
-     * Método que limpia las cajas de texto después de cada acción.
+    /**
+     * Estos 3 botones son para los productos
+     * @param evt 
      */
-    private void limpiar(){
-        jTFId.setText("");
-        jTFPrecio.setText("");
-        jTFNombre.setText("");
-        jTFUnidades.setText("");
-    }
-    
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        int index = jTProductos.getSelectedRow();
+        TableModel model = jTProductos.getModel();
+        String id = model.getValueAt(index, 0).toString();
+        operaciones.insertar("delete from productos where id = " + id);
+        operaciones.totalProductos((DefaultTableModel) jTProductos.getModel());
+
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        operaciones.totalProductos((DefaultTableModel) jTProductos.getModel());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
         try {
             int id = Integer.parseInt(jTFId.getText());
-            int precio = Integer.parseInt(jTFId.getText());
-            int unidades = Integer.parseInt(jTFId.getText());
-            
+            int precio = Integer.parseInt(jTFPrecio.getText());
+            int unidades = Integer.parseInt(jTFUnidades.getText());
 
             Producto stock = new Producto(id, jTFNombre.getText()
-                     ,unidades, precio);
+                ,unidades, precio);
 
             operaciones.guardarProducto(stock);
             limpiar();
@@ -231,19 +360,50 @@ public class Display extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBGuardarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        operaciones.totalProductos((DefaultTableModel) jTPersonas.getModel());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    /**
+     * Los tres siguientes botones son para los usuarios.
+     * @param evt 
+     */
+    private void jBGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardar1ActionPerformed
+         try {
+            int id = Integer.parseInt(jTFId1.getText());
+
+            Empleado user = new Empleado(id, jTFNombre1.getText()
+                ,jTFPassword.getText());
+
+            operaciones.guardarUsuario(user);
+            limpiar();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "jbGuardar. Error:" + ex.getMessage() + "\nVerifique");
+        }
+    }//GEN-LAST:event_jBGuardar1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        operaciones.insertar("delete from productos");
-        operaciones.totalProductos((DefaultTableModel) jTPersonas.getModel());
+        operaciones.totalUsuarios((DefaultTableModel) jTUsuarios.getModel());
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBBuscarActionPerformed
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        int index = jTUsuarios.getSelectedRow();
+        TableModel model = jTUsuarios.getModel();
+        String id = model.getValueAt(index, 0).toString();
+        operaciones.insertar("delete from usuarios where id = " + id);
+        operaciones.totalUsuarios((DefaultTableModel) jTUsuarios.getModel());
+    }//GEN-LAST:event_jButton4MouseClicked
 
+        /** 
+     * Método que limpia las cajas de texto después de cada acción.
+     */
+    private void limpiar(){
+        jTFId.setText("");
+        jTFPrecio.setText("");
+        jTFNombre.setText("");
+        jTFUnidades.setText("");
+        jTFId1.setText("");
+        jTFNombre1.setText("");
+        jTFPassword.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -280,22 +440,35 @@ public class Display extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBGuardar;
+    private javax.swing.JButton jBGuardar1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTFId;
+    private javax.swing.JTextField jTFId1;
     private javax.swing.JTextField jTFNombre;
+    private javax.swing.JTextField jTFNombre1;
+    private javax.swing.JTextField jTFPassword;
     private javax.swing.JTextField jTFPrecio;
     private javax.swing.JTextField jTFUnidades;
-    private javax.swing.JTable jTPersonas;
+    private javax.swing.JTable jTProductos;
+    private javax.swing.JTable jTUsuarios;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     // End of variables declaration//GEN-END:variables
 }
